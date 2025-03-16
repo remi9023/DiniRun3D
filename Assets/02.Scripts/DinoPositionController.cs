@@ -23,8 +23,10 @@ public class DinoPositionController : MonoBehaviour
             // 각도를 라디안으로 변환
             float angleRad = angle * Mathf.Deg2Rad; // degree 를 radian으로 치환
             // X와 Z 좌표를 원형으로 계산
+            
             float x = Mathf.Cos(angleRad) * radius;
             float z = Mathf.Sin(angleRad) * radius;
+            
             // 새로운 위치로 자식 오브젝트를 위치시킴
             raptors.GetChild(i).localPosition = new Vector3(x, 0, z);
         }
