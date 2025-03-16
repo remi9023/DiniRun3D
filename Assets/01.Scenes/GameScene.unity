@@ -257,7 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adca8860ecf52134ca198f06d652fc1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zmoveSpeed: 0
+  zMoveSpeed: 3
+  xMoveSpeed: 3
 --- !u!4 &52022294
 Transform:
   m_ObjectHideFlags: 0
@@ -434,7 +435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7025175817463146691, guid: fd03a296e0bd90343baab9c1aa106c37, type: 3}
       propertyPath: m_Name
-      value: Raptor_Animated_FBX_5K_Blue
+      value: Raptor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
