@@ -12,10 +12,10 @@ public class DinoController : MonoBehaviour
     }
     void Update()
     {
-        transform.position += Vector3.forward * Time.deltaTime * zMoveSpeed;
+        transform.position += Vector3.forward * Time.deltaTime * zMoveSpeed; // 매 프레임마다 객체를 +x 방향으로 1유닛씩 이동
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(-xMoveSpeed * Time.deltaTime, 0, 0); // 매 프레임마다 객체를 +x 방향으로 1유닛씩 이동
+            transform.Translate(-xMoveSpeed * Time.deltaTime, 0, 0); 
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
