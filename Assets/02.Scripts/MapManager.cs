@@ -10,7 +10,7 @@ public class MapManager : MonoBehaviour
     void Start()
     {
         Vector3 mapPosition = Vector3.zero; // 초기 생성 위치는 원점으로 한다.
-        for (int i = 0; i < 5; i++) // 일단 테스트로 5개만 만들어본다.
+        for (int i = 0; i < 10; i++) // 일단 테스트로 
         {
             GameObject selectedMap = mapPrefabs[Random.Range(0, mapPrefabs.Length)]; // 만들 Map을 랜덤으로 선택한다.
             if (i > 0)
