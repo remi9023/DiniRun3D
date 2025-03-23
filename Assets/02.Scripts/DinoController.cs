@@ -21,5 +21,6 @@ public class DinoController : MonoBehaviour
         {
             transform.Translate(xMoveSpeed * Time.deltaTime, 0, 0);
         }
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -3.9f, 3.9f), transform.position.y, transform.position.z);
     }
 }
