@@ -49,6 +49,7 @@ public class DinoPositionController : MonoBehaviour
         }
         else if (doorType.Equals(DoorType.Minus)) // 빼기
         {
+            MinusRaptor(doorNumber);
         }
         else if (doorType.Equals(DoorType.Times)) // 곱하기
         {
@@ -57,6 +58,8 @@ public class DinoPositionController : MonoBehaviour
         }
         else if (doorType.Equals(DoorType.Division)) // 나누기
         {
+            int raptorNum = raptors.childCount - (raptors.childCount / doorNumber);
+            MinusRaptor(raptorNum);
         }
     }
     private void PlusRaptor(int number)
@@ -64,6 +67,21 @@ public class DinoPositionController : MonoBehaviour
         for (int i = 0; i < number; i++)
         {
             Instantiate(raptorPrefab, raptors); //매개변수로 받은 number 수만큼 raptorPrefab을 생성시켜 줍니다.
+        }
+    }
+    private void MinusRaptor(int number)
+    {
+        // 빼는 숫자가 현재 나의 Raptor숫자보다 더 크면
+        if (number > raptors.childCount)
+        {
+            // 빼는 숫자를 현재 나의 Raptor수로 세팅해준다. ( 어차피 0이 될 것이므로 , 나중에 0이 되면 게임오버 시킬 것임 )
+            number = raptors.childCount;
+        }
+        int raptorNum = raptors.childCount; // 현재 나의 Raptor숫자를 구하고
+                                            // 맨 마지막 Raptor오브젝트부터 시작해서 전체 Raptor에서 문에 써져있는 숫자만큼 뺀 값보다 같거나 클때 까지 점점 i를 줄이면서
+        for (int i = raptorNum - 1; i >= (raptorNum - number); i--)
+        {
+            Destroy(raptors.GetChild(i).gameObject); // 맨 마지막 오브젝트부터 삭제 시킵니다.
         }
     }
 }
