@@ -1,59 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Collections;
 using UnityEngine;
 
 public class DinoController : MonoBehaviour
 {
-    public float zMoveSpeed;
-    public float xMoveSpeed;
-    // 구체의 중심이될위치
-    public Vector3 sphereCenter;
-    // 구체의 반지름
-    public float sphereRadius = 0.5f;
-    void Start()
-    {
-    }
+    public DinoPositionController dinoPositionController;
+    public float zMoveSpeed;        // 앞으로 가는 속도
+    public float xMoveSpeed;        // 좌우 이동 속도
+
+    public Vector3 sphereCenter;    // 감지 구체의 중심 위치 (상대좌표)
+    public float sphereRadius = 0.5f; // 구체의 반지름
+
     void Update()
     {
         DinoMove();
-     
+        DoorCheck();
     }
 
-        void DinoMove()
+    // 공룡 이동 처리
+    void DinoMove()
+    {
+        // 앞으로 계속 전진
+        transform.position += Vector3.forward * Time.deltaTime * zMoveSpeed;
+
+        // 좌우 이동
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            {
-                // Z축으로계속앞으로이동
-                transform.position += Vector3.forward * Time.deltaTime * zMoveSpeed;
-                if (Input.GetKey(KeyCode.LeftArrow))
-                {
-                    transform.Translate(-xMoveSpeed * Time.deltaTime, 0, 0);
-                }
-                if (Input.GetKey(KeyCode.RightArrow))
-                {
-                    transform.Translate(xMoveSpeed * Time.deltaTime, 0, 0);
-                }
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, -3.9f, 3.9f), transform.position.y, transform.position.z);
-            }
+            transform.Translate(-xMoveSpeed * Time.deltaTime, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Translate(xMoveSpeed * Time.deltaTime, 0, 0);
+        }
 
+        // 좌우 이동 제한 (범위 밖으로 못 나가게)
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -3.9f, 3.9f), transform.position.y, transform.position.z);
+    }
 
-            void DoorCheck()
-            {
-                // 구체 영역 내의Collider들을 감지
-                Collider[] hitColliders = Physics.OverlapSphere(transform.position + sphereCenter, sphereRadius);
-                // 감지된 Collider들 처리
-                foreach (Collider doors in hitColliders)
-                {
-                    Debug.Log("감지된 오브젝트: " + doors.gameObject.name);
-                }
-            }
-            // 구체 영역을 Gizmo로 시각화
-            void OnDrawGizmos()
-            {
-                Gizmos.color = Color.red;
-                Gizmos.DrawWireSphere(transform.position + sphereCenter, sphereRadius);
-            }
+    // 문(또는 오브젝트) 감지 처리
+    void DoorCheck()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position + sphereCenter, sphereRadius);
+
+        foreach (Collider doors in hitColliders)
+        {
+            // 여기에서 충돌한 Door의 타입과 문에 써진 숫자를 받아와서
+            int doorNumber = doors.gameObject.GetComponent<SelectDoors>().GetDoorNumber(transform.position.x);
+            DoorType doorType = doors.gameObject.GetComponent<SelectDoors>().GetDoorType(transform.position.x);
+            // DinoPositionController스크립트에서 적절하게 사칙연산에 맞게 계산해야 함.
+            doors.gameObject.GetComponent<BoxCollider>().enabled = false; // door의 BoxCollider 비활성화
+
+            dinoPositionController.SetDoorCalc(doorType, doorNumber);
         }
     }
 
- 
+    // 감지 범위를 씬 뷰에서 시각적으로 표시
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + sphereCenter, sphereRadius);
+    }
+}

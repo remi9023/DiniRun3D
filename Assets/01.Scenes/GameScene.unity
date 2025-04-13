@@ -152,8 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adca8860ecf52134ca198f06d652fc1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dinoPositionController: {fileID: 52022295}
   zMoveSpeed: 3
   xMoveSpeed: 3
+  sphereCenter: {x: 0, y: 1, z: 0}
+  sphereRadius: 0.5
 --- !u!4 &52022294
 Transform:
   m_ObjectHideFlags: 0
@@ -184,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raptors: {fileID: 452571612}
+  raptorPrefab: {fileID: 2067741783442666980}
   radius: 0.6
   ratio: 0.03
 --- !u!1 &168880946
@@ -557,7 +561,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6279471398763867129}
+  - {fileID: 5848291417544435304}
   m_Father: {fileID: 52022294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &682543241
@@ -1719,10 +1723,10 @@ MonoBehaviour:
   leftDoorSpriteRD: {fileID: 1677864521}
   rightDoorText: {fileID: 168880947}
   leftDoorText: {fileID: 1187881356}
-  rightDoorType: 2
+  rightDoorType: 0
   rightDoorNumber: 2
-  leftDoorType: 3
-  leftDoorNumber: 4
+  leftDoorType: 0
+  leftDoorNumber: 6
   goodColor: {r: 0.43867922, g: 0.5722247, b: 1, a: 0.83137256}
   badColor: {r: 1, g: 0, b: 0, a: 0.7607843}
 --- !u!65 &2057712436
@@ -1846,7 +1850,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dinoCountText: {fileID: 406277477}
   dinosParent: {fileID: 452571612}
---- !u!1001 &2517880833074709491
+--- !u!1 &2067741783442666980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6236732937415649719, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
+  m_PrefabInstance: {fileID: 4370338194787284900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4370338194787284900
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1854,59 +1863,59 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 452571612}
     m_Modifications:
-    - target: {fileID: 4486525815348786711, guid: 2b1e4c5cd7ec9ed4881f40204aeb85a3, type: 3}
-      propertyPath: m_Name
-      value: Raptor
-      objectReference: {fileID: 0}
-    - target: {fileID: 8347423318208243099, guid: 2b1e4c5cd7ec9ed4881f40204aeb85a3, type: 3}
+    - target: {fileID: 1546503314022366863, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8347423318208243099, guid: 2b1e4c5cd7ec9ed4881f40204aeb85a3, type: 3}
+    - target: {fileID: 1546503314022366863, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8347423318208243099, guid: 2b1e4c5cd7ec9ed4881f40204aeb85a3, type: 3}
+    - target: {fileID: 1546503314022366863, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8347423318208243099, guid: 2b1e4c5cd7ec9ed4881f40204aeb85a3, type: 3}
+    - target: {fileID: 1546503314022366863, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8347423318208243099, guid: 2b1e4c5cd7ec9ed4881f40204aeb85a3, type: 3}
+    - target: {fileID: 1546503314022366863, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 8347423318208243099, guid: 2b1e4c5cd7ec9ed4881f40204aeb85a3, type: 3}
+    - target: {fileID: 1546503314022366863, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
       propertyPath: m_LocalRotation.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8347423318208243099, guid: 2b1e4c5cd7ec9ed4881f40204aeb85a3, type: 3}
+    - target: {fileID: 1546503314022366863, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 8347423318208243099, guid: 2b1e4c5cd7ec9ed4881f40204aeb85a3, type: 3}
+    - target: {fileID: 1546503314022366863, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8347423318208243099, guid: 2b1e4c5cd7ec9ed4881f40204aeb85a3, type: 3}
+    - target: {fileID: 1546503314022366863, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 8347423318208243099, guid: 2b1e4c5cd7ec9ed4881f40204aeb85a3, type: 3}
+    - target: {fileID: 1546503314022366863, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236732937415649719, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
+      propertyPath: m_Name
+      value: Raptor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2b1e4c5cd7ec9ed4881f40204aeb85a3, type: 3}
---- !u!4 &6279471398763867129 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
+--- !u!4 &5848291417544435304 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8347423318208243099, guid: 2b1e4c5cd7ec9ed4881f40204aeb85a3, type: 3}
-  m_PrefabInstance: {fileID: 2517880833074709491}
+  m_CorrespondingSourceObject: {fileID: 1546503314022366863, guid: a350c64cd9858174ea5b3ac08593efd2, type: 3}
+  m_PrefabInstance: {fileID: 4370338194787284900}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+public enum DoorType
+{
+    Plus,
+    Minus,
+    Times,
+    Division
+}
+
+
 public class SelectDoors : MonoBehaviour
 {
-    enum DoorType
-    {
-        Plus,
-        Minus,
-        Times,
-        Division
-    }
+ 
     public SpriteRenderer rightDoorSpriteRD;  // 오른쪽 문의 색을 관리할 변수
     public SpriteRenderer leftDoorSpriteRD;   // 왼쪽 문의 색을 관리할 변수
     public TextMeshPro rightDoorText;   //오른쪽 문의 Text를 관리할 변수
@@ -79,6 +82,29 @@ public class SelectDoors : MonoBehaviour
         {
             leftDoorSpriteRD.color = badColor;
             leftDoorText.text = "/ " + leftDoorNumber;
+        }
+    }
+    public DoorType GetDoorType(float xPos)
+    {
+        if (xPos > 0) //Dino의 위치값이 0보다 크면
+        {
+            return rightDoorType; // 오른쪽 문 타입 반환
+        }
+        else
+        {
+            return leftDoorType; // 왼쪽 문 타입 반환
+        }
+    }
+
+    public int GetDoorNumber(float xPos)
+    {
+        if (xPos > 0) //Dino의 위치값이 0보다 크면
+        {
+            return rightDoorNumber; //오른쪽 문의 값 반환
+        }
+        else
+        {
+            return leftDoorNumber; //왼쪽 문의 값 반환
         }
     }
 
