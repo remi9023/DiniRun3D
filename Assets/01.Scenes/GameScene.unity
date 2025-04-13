@@ -2051,6 +2051,8 @@ MonoBehaviour:
   - {fileID: 6536913202156742299, guid: d6766f27eabfcb547a27b6deb5d08443, type: 3}
   - {fileID: 6499687515459551143, guid: 397926365466092498d9e35c5a239dfd, type: 3}
   - {fileID: 2103051401021010086, guid: cf34ef4472a2e894b8970732453963ab, type: 3}
+  stages:
+  - {fileID: 11400000, guid: 2aea3b72768fc3644bf1ed4e1cc136b2, type: 2}
 --- !u!4 &1953988339
 Transform:
   m_ObjectHideFlags: 0
