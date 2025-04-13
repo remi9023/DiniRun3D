@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool isGameStart;
+
+    public void GameStart()
+
+    {
+        Debug.Log("게임 시작");
+        isGameStart = true;
+    }
     void Start()
     {
         

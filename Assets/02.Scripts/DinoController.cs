@@ -13,8 +13,11 @@ public class DinoController : MonoBehaviour
 
     void Update()
     {
-        DinoMove();
-        DoorCheck();
+        if (GameManager.instance.isGameStart.Equals(true))
+        {
+            DinoMove();
+            DoorCheck();
+        }
     }
 
     // 공룡 이동 처리
