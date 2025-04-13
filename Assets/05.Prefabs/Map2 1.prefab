@@ -136,7 +136,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4140620721107406933}
-  - {fileID: 6289815187608403186}
+  - {fileID: 8930601074190104424}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4967565030972548589
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapSize: {x: 10, y: 10, z: 20}
---- !u!1001 &3952037545974599313
+--- !u!1001 &1909036956566766859
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -166,19 +166,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5749155015282874150, guid: ba1e21cfe40e31f49b2db6c0820970d6, type: 3}
       propertyPath: leftDoorType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5749155015282874150, guid: ba1e21cfe40e31f49b2db6c0820970d6, type: 3}
-      propertyPath: rightDoorType
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5749155015282874150, guid: ba1e21cfe40e31f49b2db6c0820970d6, type: 3}
       propertyPath: leftDoorNumber
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5749155015282874150, guid: ba1e21cfe40e31f49b2db6c0820970d6, type: 3}
       propertyPath: rightDoorNumber
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7030572717373125219, guid: ba1e21cfe40e31f49b2db6c0820970d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -225,8 +221,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1e21cfe40e31f49b2db6c0820970d6, type: 3}
---- !u!4 &6289815187608403186 stripped
+--- !u!4 &8930601074190104424 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7030572717373125219, guid: ba1e21cfe40e31f49b2db6c0820970d6, type: 3}
-  m_PrefabInstance: {fileID: 3952037545974599313}
+  m_PrefabInstance: {fileID: 1909036956566766859}
   m_PrefabAsset: {fileID: 0}
